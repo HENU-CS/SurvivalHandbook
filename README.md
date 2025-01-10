@@ -1,6 +1,6 @@
 # README
 
-* [Readme](README.md)
+* [ReadMe](README.md)
 
 ## Ⅰ 序
 
