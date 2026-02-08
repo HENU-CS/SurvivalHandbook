@@ -73,4 +73,4 @@
 
 - 这张图片是一些常用的有效资源
 
-![alt text](S3_leap\image.png)
+![alt text](./S3_leap/image.png)
