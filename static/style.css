@@ -1,0 +1,420 @@
+/* ========================================
+   Base Styles - Reset & Typography
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: #202122;
+}
+
+/* ========================================
+   Header Styles
+   ======================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: #fff;
+    border-bottom: 1px solid #a2a9b1;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    z-index: 100;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.header-link {
+    color: #3366cc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+/* Header Dropdown */
+.header-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.header-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 80px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border: 1px solid #a2a9b1;
+    border-radius: 3px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-dropdown:hover .header-dropdown-content {
+    display: block;
+}
+
+.header-dropdown-btn {
+    color: #3366cc;
+    text-decoration: none;
+    font-size: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    display: inline;
+    text-align: center;
+    width: 100%;
+}
+
+.header-dropdown-content a {
+    color: #3366cc;
+    text-decoration: none;
+    padding: 4px 8px;
+    display: block;
+    font-size: 14px;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.header-dropdown-content a:hover {
+    background-color: #f8f9fa;
+    text-decoration: underline;
+}
+
+/* ========================================
+   Layout - Container
+   ======================================== */
+.container {
+    display: flex;
+    margin-top: 50px;
+    min-height: calc(100vh - 50px);
+}
+
+/* ========================================
+   Left Sidebar Styles
+   ======================================== */
+.sidebar {
+    width: 260px;
+    background: #f8f9fa;
+    border-right: 1px solid #a2a9b1;
+    padding: 20px;
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Sidebar scrollbar - hidden by default */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+/* Show scrollbar on hover */
+.sidebar:hover::-webkit-scrollbar-thumb,
+.sidebar:active::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    padding: 5px;
+    z-index: 100;
+}
+
+.sidebar-toggle:hover {
+    color: #333;
+}
+
+.sidebar-toggle svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* ========================================
+   Navigation Styles
+   ======================================== */
+.nav-section {
+    margin: 8px 0;
+}
+
+.nav-section-title {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #202122;
+    padding: 6px 0;
+    font-weight: 500;
+}
+
+.nav-section-title:hover {
+    background-color: #f0f0f0;
+    border-radius: 3px;
+}
+
+.nav-toggle {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    position: relative;
+}
+
+.nav-toggle::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-right: 2px solid #72777d;
+    border-bottom: 2px solid #72777d;
+    transform: translate(-75%, -50%) rotate(45deg);
+    transition: transform 0.2s;
+}
+
+.nav-section.collapsed .nav-toggle::before {
+    transform: translate(-75%, -75%) rotate(-45deg);
+}
+
+.nav-section.collapsed .nav-items {
+    display: none;
+}
+
+.nav-items {
+    margin-left: 24px;
+}
+
+.nav-link {
+    color: #3366cc;
+    text-decoration: none;
+    display: block;
+    padding: 4px 0;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   Right Sidebar Styles
+   ======================================== */
+.right-sidebar {
+    width: 260px;
+    background: #f8f9fa;
+    border-left: 1px solid #a2a9b1;
+    padding: 20px;
+    position: fixed;
+    top: 50px;
+    right: -260px;
+    bottom: 0;
+    overflow-y: auto;
+    transition: right 0.6s ease;
+    scroll-behavior: smooth;
+    z-index: 99;
+}
+
+.right-sidebar.active {
+    right: 0;
+}
+
+/* Right sidebar trigger area */
+.right-sidebar-trigger {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 30px;
+    height: calc(100vh - 50px);
+    z-index: 98;
+}
+
+/* Show sidebar on hover */
+.right-sidebar-trigger:hover + .right-sidebar:not(:empty),
+.right-sidebar:not(:empty):hover,
+.right-sidebar.active:not(:empty),
+.right-sidebar.locked:not(:empty) {
+    right: 0;
+}
+
+/* Adjust main content when sidebar is locked */
+.right-sidebar.locked ~ .main-content {
+    margin-right: 260px;
+}
+
+/* Lock button */
+.right-lock-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 16px;
+    padding: 5px;
+    z-index: 100;
+}
+
+.right-lock-button:hover {
+    color: #333;
+}
+
+/* ========================================
+   Main Content Styles
+   ======================================== */
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    padding: 40px;
+    max-width: 1000px;
+}
+
+.main-content.shifted {
+    margin-right: 260px;
+}
+
+/* ========================================
+   Markdown Body Styles
+   ======================================== */
+.markdown-body h1 {
+    font-size: 1.8em;
+    margin-bottom: 0.8em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #a2a9b1;
+    color: #000;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+}
+
+.markdown-body h2 {
+    font-size: 1.5em;
+    margin: 1em 0;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #c8ccd1;
+    color: #162441;
+    font-family: 'Linux Libertine', 'Georgia', 'Times', serif;
+}
+
+.markdown-body p {
+    margin: 1em 0;
+    line-height: 1.6;
+}
+
+.markdown-body code {
+    padding: 0.2em 0.4em;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
+.markdown-body pre {
+    margin: 1em 0;
+    padding: 16px;
+    overflow: auto;
+    background-color: #f6f8fa;
+    border-radius: 3px;
+    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+}
+
+.markdown-body pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+.markdown-body ul {
+    margin: 1em 0;
+    padding-left: 40px;
+}
+
+/* ========================================
+   Table Styles
+   ======================================== */
+.markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid #d0d7de;
+    padding: 8px 12px;
+}
+
+.markdown-body th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+}
+
+.markdown-body tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.markdown-body tr:hover {
+    background-color: #f1f2f3;
+}
+
+/* ========================================
+   Footer Styles
+   ======================================== */
+footer {
+    font-size: small;
+    border-top: 1px solid #c0c0c0;
+    padding-top: 0.1em;
+    margin-top: 0.1em;
+    color: #c0c0c0;
+    margin-left: 230px;
+}
+
+footer a {
+    color: #80a0b0;
+}
+
+.footer-text {
+    padding-left: 40px;
+    padding-bottom: -10px;
+}
